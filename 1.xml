@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdtprojectproperties>
+  <section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.IncludePaths">
+    <language name="s,S,asm"/>
+    <language id="org.eclipse.cdt.core.gcc" name="C Source File">
+      <includepath>D:\Embeded Systems\COTs\APP</includepath>
+      <includepath>D:\Embeded Systems\COTs\HAL</includepath>
+      <includepath>D:\Embeded Systems\COTs\Libraries</includepath>
+      <includepath>D:\Embeded Systems\COTs\MCAL</includepath>
+    </language>
+    <language name="Object File"/>
+  </section>
+  <section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.Macros">
+    <language name="s,S,asm"/>
+    <language id="org.eclipse.cdt.core.gcc" name="C Source File"/>
+    <language name="Object File"/>
+  </section>
+</cdtprojectproperties>
