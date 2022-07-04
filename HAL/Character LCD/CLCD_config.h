@@ -12,6 +12,8 @@
 #ifndef CLCD_CONFIG_H_
 #define CLCD_CONFIG_H_
 
+#define CLCD_OPERATION			4
+
 #define CLCD_u8SAME_PORT		0
 #define CLCD_u8MULTIPLE_PORTS	1
 
@@ -29,8 +31,6 @@
 #define CLCD_u8DATA_PORT6	CLCD_u8DATA_PORT
 #define CLCD_u8DATA_PORT7	CLCD_u8DATA_PORT
 #endif
-
-#define CLCD_OPERATION			8
 
 #if	CLCD_OPERATION == 4
 
