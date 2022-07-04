@@ -10,27 +10,23 @@
 /******************************************************/
 
 #include"STD_TYPES.h"
+#include"BIT_MATH.h"
+
+#include"CLCD_private.h"
+#include"CLCD_interface.h"
+#include"CLCD_config.h"
+
 #include"DIO_interface.h"
-#include "BIT_MATH.h"
+
+
+
 
 #include<util/delay.h>
 #define delay(x)	_delay_ms(x)
 
-#include"CLCD_interface.h"
-#include"CLCD_config.h"
-#include"CLCD_private.h"
-
-
-#if	CLCD_OPERATION == 8
-void CLCD_vidInit(){
+#if	CLCD_OPERATION == CLCD_u88BIT
+void CLCD_voidInit(){
 	delay(30);
-	/*	Set the Control Pins directions to output */
-	DIO_u8SetPinDirection(CLCD_u8CONTROL_PORT, CLCD_U8RS_PIN, DIO_u8PIN_OUTPUT);
-	DIO_u8SetPinDirection(CLCD_u8CONTROL_PORT, CLCD_U8RW_PIN, DIO_u8PIN_OUTPUT);
-	DIO_u8SetPinDirection(CLCD_u8CONTROL_PORT, CLCD_U8EN_PIN, DIO_u8PIN_OUTPUT);
-
-	/*	Set the Data Port directions to output */
-	DIO_u8SetPortDirection(CLCD_u8DATA_PORT, DIO_u8PORT_OUTPUT);
 
 	/* Set RS and R/W to Low for Instruction write operation */
 	DIO_u8SetPinValue(CLCD_u8CONTROL_PORT, CLCD_U8RS_PIN, DIO_u8PIN_LOW);
@@ -91,19 +87,9 @@ u8 CLCD_u8SendCharacter( u8 Copy_u8Character ){
 	DIO_u8SetPinValue(CLCD_u8CONTROL_PORT, CLCD_U8EN_PIN, DIO_u8PIN_LOW);
 	return Local_u8ErrorState;
 }
-#elif CLCD_OPERATION == 4
-void CLCD_vidInit(){
+#elif CLCD_OPERATION == CLCD_u84BIT
+void CLCD_voidInit(){
 	delay(30);
-	/*	Set the Control Pins directions to output */
-	DIO_u8SetPinDirection(CLCD_u8CONTROL_PORT, CLCD_U8RS_PIN, DIO_u8PIN_OUTPUT);
-	DIO_u8SetPinDirection(CLCD_u8CONTROL_PORT, CLCD_U8RW_PIN, DIO_u8PIN_OUTPUT);
-	DIO_u8SetPinDirection(CLCD_u8CONTROL_PORT, CLCD_U8EN_PIN, DIO_u8PIN_OUTPUT);
-
-	/*	Set the Data Pins directions to output */
-	DIO_u8SetPinDirection(CLCD_u8DATA_PORT4, CLCD_u8DATA_PIN4, DIO_u8PIN_OUTPUT);
-	DIO_u8SetPinDirection(CLCD_u8DATA_PORT5, CLCD_u8DATA_PIN5, DIO_u8PIN_OUTPUT);
-	DIO_u8SetPinDirection(CLCD_u8DATA_PORT6, CLCD_u8DATA_PIN6, DIO_u8PIN_OUTPUT);
-	DIO_u8SetPinDirection(CLCD_u8DATA_PORT7, CLCD_u8DATA_PIN7, DIO_u8PIN_OUTPUT);
 
 	/* Set RS and R/W to Low for Instruction write operation */
 	DIO_u8SetPinValue(CLCD_u8CONTROL_PORT, CLCD_U8RS_PIN, DIO_u8PIN_LOW);

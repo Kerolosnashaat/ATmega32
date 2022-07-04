@@ -12,7 +12,7 @@
 #ifndef CLCD_CONFIG_H_
 #define CLCD_CONFIG_H_
 
-#define CLCD_OPERATION			4
+#define CLCD_OPERATION			CLCD_u84BIT
 
 #define CLCD_u8SAME_PORT		0
 #define CLCD_u8MULTIPLE_PORTS	1

@@ -27,9 +27,6 @@ u8 SSD_u8ShowNumber(SSD_INIT *Copy_SSD, u8 *Copy_pu8Number){
 		Local_u8ErrorState = 1;
 	}
 
-	DIO_u8SetPortDirection(Copy_SSD->u8Port, DIO_u8PORT_OUTPUT);
-	DIO_u8SetPinDirection(Copy_SSD->u8EnablePort, Copy_SSD->u8EnablePin, DIO_u8PIN_OUTPUT);
-
 	switch(Copy_SSD->u8Type){
 	case SSD_u8COMMON_CATHOD:
 		DIO_u8SetPinValue(Copy_SSD->u8EnablePort, Copy_SSD->u8EnablePin, DIO_u8PIN_LOW);
@@ -53,14 +50,6 @@ u8 SSD_u8ShowMultipleNumbers(SSD_Multiple *Copy_SSDs[], u8 *Copy_pu8Number ,SSD_
 	for(u8 u8DividCounter = 1 ; u8DividCounter <= Copy_SSDConstants->u8NumberOfDigits ; u8DividCounter++ ){
 		Local_u8ArrayOfNumbers[Copy_SSDConstants->u8NumberOfDigits-u8DividCounter] = Local_u16DisplayedNumber%10;
 		Local_u16DisplayedNumber /= 10;
-	}
-
-	/* Assign the 7-Segment Port to Output */
-	DIO_u8SetPortDirection(Copy_SSDConstants->u8Port, DIO_u8PORT_OUTPUT);
-
-	/* Assign the 7-Segment Enabling Pins to Output */
-	for( u8 u8Digit = 0 ; u8Digit < Copy_SSDConstants->u8NumberOfDigits ; u8Digit++ ){
-		DIO_u8SetPinDirection(Copy_SSDs[u8Digit]->u8EnablePort, Copy_SSDs[u8Digit]->u8EnablePin, DIO_u8PIN_OUTPUT);
 	}
 
 	for( u8 u8Digit = 0 ; u8Digit < Copy_SSDConstants->u8NumberOfDigits ; u8Digit++ ){

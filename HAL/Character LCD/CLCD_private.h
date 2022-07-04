@@ -12,4 +12,7 @@
 #ifndef CLCD_PRIVATE_H_
 #define CLCD_PRIVATE_H_
 
+#define CLCD_u84BIT	4
+#define CLCD_u88BIT	8
+
 #endif

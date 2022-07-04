@@ -17,7 +17,6 @@
 u8 LED_u8Control(LED *Copy_LED, u8 Copy_u8Switching){
 	u8 LED_u8ErrorState = 0;
 	u8 Local_u8On, Local_u8Off;
-	DIO_u8SetPinDirection(Copy_LED->LED_u8Port, Copy_LED->LED_u8Pin, DIO_u8PIN_OUTPUT);
 
 	if( Copy_LED->LED_u8Connection_Type == LED_u8SINK_CONNECTION ){
 		Local_u8On=0;

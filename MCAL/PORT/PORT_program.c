@@ -3,23 +3,34 @@
 /***********								***********/
 /***********	Author	: Kerolos Hanna		***********/
 /***********	Layer	: MCAL				***********/
-/***********	SWC		: DIO				***********/
+/***********	SWC		: PORT				***********/
 /***********	Version	: 1.00				***********/
 /***********								***********/
 /******************************************************/
 /******************************************************/
 
-#ifndef DIO_REGISTER_H_
-#define	DIO_REGISTER_H_
+#include "STD_TYPES.h"
+#include "PORT_config.h"
+#include "PORT_private.h"
+#include "PORT_register.h"
+#include "PORT_interface.h"
 
-#define	PA		*( (volatile u8*) 0x3B )
-#define	PB		*( (volatile u8*) 0x38 )
-#define	PC		*( (volatile u8*) 0x35 )
-#define	PD		*( (volatile u8*) 0x32 )
+void PORT_voidInit(){
+	DA = PORTA_DIRECTIONS;
 
-#define	PINA	*( (volatile u8*) 0x39 )
-#define	PINB	*( (volatile u8*) 0x36 )
-#define	PINC	*( (volatile u8*) 0x33 )
-#define	PIND	*( (volatile u8*) 0x30 )
+	DB = PORTB_DIRECTIONS;
+						
+	DC = PORTC_DIRECTIONS;
+		
+	DD = PORTD_DIRECTIONS;
+}
 
-#endif
+void PORT_voidInitValue(){
+	PA = PORTA_VALUES;
+			   
+	PB = PORTB_VALUES;
+				
+	PC = PORTC_VALUES;
+			   
+	PD = PORTD_VALUES;
+}

@@ -18,7 +18,7 @@
 #define CLCD_u8RETURN_HOME							0x02
 #define CLCD_u8DISPLAY_ON_CURSOR_OFF_BLINKING_OFF	0x0C
 
-void CLCD_vidInit();
+void CLCD_voidInit();
 
 u8 CLCD_u8SendCommand( u8 Copy_u8Command );
 
